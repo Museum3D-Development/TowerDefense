@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8eece8bff785c4a6da73b5ff15cfbe8c, type: 3}
+  m_Name: ContentFactory
+  m_EditorClassIdentifier: 
+  _destinationPrefab: {fileID: 2842903674810269747, guid: 70c13ed0d42c6db479cfd0d0015259f1,
+    type: 3}
+  _emptyPrefab: {fileID: 8303171101331295571, guid: 68ea705d405b67a4eac32f670f6cf243,
+    type: 3}
+  _wallStraightPrefab: {fileID: 4669633384676414723, guid: d7365f21e52cecc4e8ae2c04c5dd03aa,
+    type: 3}
+  _wallAnglePrefab: {fileID: 8630134979250339706, guid: 713b5be7822b7194b8e5dedb7e1da78f,
+    type: 3}
+  _spawnPointPrefab: {fileID: 2058583524664596381, guid: 7b278a3ec1483db4d9411d8ac8a9dd7e,
+    type: 3}
+  _laserTowerPrefab: {fileID: 160209056339464019, guid: 62c6873b7c49bac42a52b767d221649a,
+    type: 3}
+  _mortarTowerPrefab: {fileID: 3765459091457055299, guid: 1edddc67e96ae2c42a29ebd873945f1d,
+    type: 3}
