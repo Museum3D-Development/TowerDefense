@@ -5,16 +5,14 @@ using UnityEngine.SceneManagement;
 
 namespace Loading
 {
-    public class MenuLoadingOperation : ILoadingOperation
+    public class LevelMenuLoadingOperation : ILoadingOperation
     {
-        //public string GetName => "Main menu loading...";
-        public string Description => "Загрузка меню...";
+        public string Description => "Загрузка уровней...";
 
         public async Task Load(Action<float> onProgress)
         {
             onProgress?.Invoke(0.5f);
-            //var loadOp = SceneManager.LoadSceneAsync(Constants.Scenes.MAIN_MENU, LoadSceneMode.Additive);
-            var loadOp = SceneManager.LoadSceneAsync(Constants.Scenes.MAIN_MENU,
+            var loadOp = SceneManager.LoadSceneAsync(Constants.Scenes.LEVEL_MENU,
                 LoadSceneMode.Single);
             while (loadOp.isDone == false)
             {

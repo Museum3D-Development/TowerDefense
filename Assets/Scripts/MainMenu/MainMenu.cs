@@ -26,7 +26,7 @@ namespace MainMenu
         private void OnStartGameBtnClicked()
         {
             var loadingOperations = new Queue<ILoadingOperation>();
-            loadingOperations.Enqueue(new GameLoadingOperation());
+            loadingOperations.Enqueue(new LevelMenuLoadingOperation());
             LoadingScreen.Instance.Load(loadingOperations);
         }
 

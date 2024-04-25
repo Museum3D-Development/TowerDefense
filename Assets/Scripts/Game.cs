@@ -12,6 +12,9 @@ using Random = UnityEngine.Random;
 public class Game : MonoBehaviour
 {
     [SerializeField]
+    private List<Vector2Int> _boardSizeLevel = new List<Vector2Int>();
+
+    //[SerializeField]
     private Vector2Int _boardSize;
 
     [SerializeField]
@@ -42,15 +45,19 @@ public class Game : MonoBehaviour
     private EnemyFactory _enemyFactory;
 
     [SerializeField]
-    private GameScenario _scenario;
+    private List<GameScenario> _scenarios = new List<GameScenario>();
 
     [SerializeField, Range(0, 100)]
-    private int _startingPlayerHealth = 10;
+    private List<int> _startingPlayerHealthsLevel = new List<int>();
 
-    [SerializeField, Range(5f, 30f)]
-    private float _prepareTime = 15f;
+    [SerializeField, Range(5f, 40f)]
+    private List <float> _prepareTimesLevel = new List<float>();
+
+    private int _startingPlayerHealth;
+    private float _prepareTime;
 
     private bool _scenarioInProcess;
+    private GameScenario _scenario;
     private GameScenario.State _activeScenario;
     private CancellationTokenSource _prepareCancellation;
 
@@ -76,6 +83,54 @@ public class Game : MonoBehaviour
     private void OnEnable()
     {
         _instance = this;
+    }
+
+    private void Awake()
+    {
+        ActiveConfigLevel();
+    }
+
+    private void ActiveConfigLevel()
+    {
+        int currentLevel = LevelMenu.StartLevelNumber;
+        //switch (currentLevel)
+        //{
+        //    case 1:
+        //        _boardSize = _boardSizeLevel[0];
+        //        _prepareTime = _prepareTimesLevel[0];
+        //        _scenario = _scenarios[0];
+        //        break;
+        //    case 2:
+        //        _boardSize = _boardSizeLevel[1];
+        //        _prepareTime = _prepareTimesLevel[1];
+        //        _scenario = _scenarios[1];
+        //        break;
+        //    case 3:
+        //        _boardSize = _boardSizeLevel[2];
+        //        _prepareTime = _prepareTimesLevel[2];
+        //        _scenario = _scenarios[2];
+        //        break;
+        //    case 4:
+        //        _boardSize = _boardSizeLevel[3];
+        //        _prepareTime = _prepareTimesLevel[3];
+        //        _scenario = _scenarios[3];
+        //        break;
+        //    case 5:
+        //        _boardSize = _boardSizeLevel[4];
+        //        _prepareTime = _prepareTimesLevel[4];
+        //        _scenario = _scenarios[4];
+        //        break;
+        //    case 6:
+        //        _boardSize = _boardSizeLevel[5];
+        //        _prepareTime = _prepareTimesLevel[5];
+        //        _scenario = _scenarios[5];
+        //        break;
+        //}
+
+        _boardSize = _boardSizeLevel[currentLevel - 1];
+        _startingPlayerHealth = _startingPlayerHealthsLevel[currentLevel - 1];
+        _prepareTime = _prepareTimesLevel[currentLevel - 1];
+        _scenario = _scenarios[currentLevel - 1];
     }
 
     private void Start()

@@ -10,6 +10,8 @@ public class GameBoard : MonoBehaviour
     [SerializeField]
     private GameTile _tilePrefab = default;
 
+    private int _levelNumber = LevelMenu.StartLevelNumber;
+
     private Vector2Int _size;
 
     private GameTile[] _tiles;
@@ -23,6 +25,53 @@ public class GameBoard : MonoBehaviour
     private GameTileContentFactory _contentFactory;
 
     public int SpawnPointCount => _spawnPoints.Count;
+
+    private void ActiveConfigLevel()
+    {
+        switch (_levelNumber)
+        {
+            case 1:
+                BuildDestination(_tiles[39]);
+                BuildSpawnPoint(_tiles[56]);
+                BuildSpawnPoint(_tiles[0]);
+                break;
+            case 2:
+                BuildDestination(_tiles[50]);
+                BuildDestination(_tiles[29]);
+                BuildSpawnPoint(_tiles[79]);
+                BuildSpawnPoint(_tiles[0]);
+                break;
+            case 3:
+                BuildDestination(_tiles[35]);
+                BuildSpawnPoint(_tiles[84]);
+                BuildSpawnPoint(_tiles[48]);
+                BuildSpawnPoint(_tiles[0]);
+                break;
+            case 4:
+                BuildDestination(_tiles[70]);
+                BuildDestination(_tiles[30]);
+                BuildSpawnPoint(_tiles[99]);
+                BuildSpawnPoint(_tiles[9]);
+                BuildSpawnPoint(_tiles[0]);
+                break;
+            case 5:
+                BuildDestination(_tiles[108]);
+                BuildDestination(_tiles[60]);
+                BuildSpawnPoint(_tiles[82]);
+                BuildSpawnPoint(_tiles[7]);
+                BuildSpawnPoint(_tiles[0]);
+                break;
+            case 6:
+                BuildDestination(_tiles[45]);
+                BuildDestination(_tiles[64]);
+                BuildDestination(_tiles[90]);
+                BuildSpawnPoint(_tiles[149]);
+                BuildSpawnPoint(_tiles[104]);
+                BuildSpawnPoint(_tiles[59]);
+                BuildSpawnPoint(_tiles[14]);
+                break;
+        }
+    }
 
     public void Initialize(Vector2Int size, GameTileContentFactory contentFactory)
     {
@@ -73,9 +122,34 @@ public class GameBoard : MonoBehaviour
         _updatingContent.Clear();
         //ToggleDestination(tiles[tiles.Length / 2]);
         //ToggleSpawnPoint(tiles[0]);
-        BuildDestination(_tiles[_tiles.Length / 2]);
-        BuildSpawnPoint(_tiles[149]);
-        BuildSpawnPoint(_tiles[14]);
+
+        //switch (_levelNumber)
+        //{
+        //    case 1:
+        //        BuildDestination(_tiles[_tiles.Length / 2]);
+        //        BuildSpawnPoint(_tiles[149]);
+        //        BuildSpawnPoint(_tiles[14]);
+        //        break;
+        //    case 2:
+        //        BuildDestination(_tiles[30]);
+        //        BuildDestination(_tiles[105]);
+        //        BuildSpawnPoint(_tiles[149]);
+        //        BuildSpawnPoint(_tiles[14]);
+        //        break;
+        //    case 3:
+        //        break;
+        //    case 4:
+        //        break;
+        //    case 5:
+        //        break;
+        //    case 6:
+        //        break;
+        //}
+
+        //BuildDestination(_tiles[_tiles.Length / 2]);
+        //BuildSpawnPoint(_tiles[149]);
+        //BuildSpawnPoint(_tiles[14]);
+        ActiveConfigLevel();
     }
 
     public void GameUpdate()
